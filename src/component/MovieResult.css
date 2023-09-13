@@ -1,0 +1,38 @@
+.movie-result-container{
+  margin: 4rem 5rem 1rem 5rem;
+
+}
+
+.movie-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-header h2{
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.movie-header p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.movie-wrapper {
+  margin-top: 3rem;
+  height: 513px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust the alignment as needed */
+  gap: 20px;
+}
+
+.movie-card {
+  /* display: flex; */
+}
+
+.movie-poster{
+    width: 250px;
+    height: 370px;
+
+}

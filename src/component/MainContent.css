@@ -1,0 +1,44 @@
+.main-content-wrapper{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+        
+      
+
+.main-content-wrapper h1{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+  
+        
+         
+  } 
+  
+  .rating{
+      display: flex;
+    justify-content: space-between;
+  }
+  
+  .homepage-movie-title{
+    margin-top: 1rem;
+    font-size: 14px;
+    font-weight: 500; 
+    line-height: 18px;
+}
+
+.movie-trailer-btn{
+    display: flex;
+    width: 169px;
+    height: 36px;
+    font-size: 14px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px 10px 16px;
+    gap: 8px;
+    background: #be123c;
+    color: #ffffff;
+}
