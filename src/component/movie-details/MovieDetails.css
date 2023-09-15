@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 .movie-details-container{
     width: 100%;
     height: 100vh;
@@ -53,7 +55,7 @@
     border: 1px solid #be123c;
     margin-left: 20px;
     border-radius: 20px;
-    font-family: poppins;
+    font-family: 'Poppins', sans-serif;
 }
 
 .play-movies-content{
@@ -92,4 +94,72 @@
     font-weight: 500;
     font-size: 20px;
     color: #666666;
+}
+
+/* Main Content */
+
+.movie-details-wrapper{
+    margin-top: 20px;
+    margin-left: 20px
+}
+
+.movie-details-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-trailer{
+    border-radius: 20px;
+}
+
+.movie-overview{
+    overflow: hidden;
+}
+
+.movie-overview p{
+    width: 830px;
+    margin-top: 20px;
+}
+
+
+.movie-details-content-two {
+
+}
+
+
+.show-times{
+    margin-top: 20px;
+    background-color: #be123c;
+    color: #ffffff;
+    width: 270px;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    gap: 20px;
+}
+
+.show-times span{
+    padding-right: 15px;
+    margin-top: 20px;
+}
+
+.watch-options{
+    margin-top: 15px;
+    background-color: #f7cdd8;
+    color: #333333;
+    border: 1px solid #be123c;
+    border-radius: 10px;
+    width: 270px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    gap: 20px;
+}
+
+.image{
+    margin-top: 20px;
+    margin-right: 20px;
 }

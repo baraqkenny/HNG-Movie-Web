@@ -30,6 +30,7 @@
 }
 
 .searchbox-wrapper{
+    positon: relative;
     top: 22px;
     left: 493px;
 }
@@ -52,6 +53,10 @@ input[type="text"] {
     color: #ffffff;
 }
 
+.search-icon{
+    color: #ffffff;
+}
+
 .signin-wrapper{
     display: flex;
     width: 114px;
@@ -70,8 +75,8 @@ input[type="text"] {
     color: #ffffff;
 }
 
-.menu-icon{
+/* .menu-icon{
     width: 36px;
     height: 36px;
     background-color: #be123c;
-}
+} */

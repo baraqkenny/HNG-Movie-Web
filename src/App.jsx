@@ -9,8 +9,9 @@ function App() {
   return (
     <div className="movie-container">
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/movie-details" element={<MovieDetails />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/movie-details/:id" element={<MovieDetails />} />
+   
       </Routes>
     </div>
   );
