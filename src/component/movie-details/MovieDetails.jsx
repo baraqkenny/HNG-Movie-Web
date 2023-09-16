@@ -14,8 +14,7 @@ function MovieDetails() {
 
     const opts = {
       height: "449",
-      width: "1100",
-      // borderRadius: "13%",
+      width: "1125",
     };
 
 
@@ -68,10 +67,30 @@ useEffect(() => {
 
         <div className="side-nav-list">
           <ul>
-            <li>Home</li>
-            <li className="active">Movies</li>
-            <li>TV Series</li>
-            <li>Upcoming</li>
+            <div className="side-nav-home">
+              <span>
+                <i className="bx bx-home-alt"></i>
+              </span>
+              <li>Home</li>
+            </div>
+            <div className="side-nav-movies">
+              <span>
+                <i className="bx bx-video"></i>
+              </span>
+              <li className="active">Movies</li>
+            </div>
+            <div className="side-nav-tv">
+              <span>
+                <i className="bx bx-tv"></i>
+              </span>
+              <li>TV Series</li>
+            </div>
+            <div className="side-nav-upcoming">
+              <span>
+                <i className="bx bx-video"></i>
+              </span>
+                <li>Upcoming</li>
+            </div>
           </ul>
 
           <div className="play-movies-wrapper">
@@ -88,13 +107,16 @@ useEffect(() => {
               <button>start playing</button>
             </div>
           </div>
-          <h4 className="log-out">Log out</h4>
+          <div className="log-out-wrapper">
+            <box-icon name="log-in"></box-icon>
+            <h4 className="log-out">Log out</h4>
+          </div>
         </div>
       </div>
 
       <div className="movie-details-wrapper">
         {loading ? (
-          <h1>Loading...</h1>
+          <div className="loader"></div>
         ) : (
           showMovieTrailers.map((movieTrailer) => (
             <div key={movieTrailer.id}>
@@ -107,10 +129,30 @@ useEffect(() => {
                   </h4>
 
                   <p>{movieDetails.overview}</p>
+
+                  <div className="movie-crew">
+                    <p>
+                      Director: <span>Joseph kosinski</span>
+                    </p>
+                    <p>
+                      Writers: <span>Jim Cash, Jack Epps jr, Peter Craig</span>
+                    </p>
+                    <p>
+                      Stars:
+                      <span>Tom Cruise, Jennifer Connelly, Miles Teller</span>
+                    </p>
+
+                    <div className="movie-detail-footer">
+                      <h4 className="top-rated">Top rated movie #65</h4>
+                      <h4 style={{ color: '#333333'}}>Awards 9 nominations</h4>
+                      <box-icon name="chevron-down"></box-icon>
+                    </div>
+                  </div>
                 </div>
                 <div className="movie-details-content-two">
-                  <h4><span className='popular'><box-icon name="star"
-                      ></box-icon>
+                  <h4>
+                    <span className="popular">
+                      <box-icon name="star"></box-icon>
                     </span>
                     8.6 | 350k
                   </h4>
@@ -122,11 +164,11 @@ useEffect(() => {
                   </p>
                   <p className="watch-options">
                     <span>
-                     
+                      <box-icon name="list-ul"></box-icon>
                     </span>
                     More watch options
                   </p>
-                  <img className='image' src="../Rectangle 37.png" alt="" />
+                  <img className="image" src="../Rectangle 37.png" alt="" />
                 </div>
               </div>
             </div>

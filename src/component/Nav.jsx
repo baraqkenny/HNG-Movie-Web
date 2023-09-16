@@ -1,10 +1,12 @@
-import React from 'react';
+import { useState} from 'react';
 import logo from '../assets/tv.png'
 
 
 import './Nav.css'
 
 function Nav() {
+
+
   return (
     <nav className="nav-container">
       <a href="" className="logo-wrapper">
@@ -13,13 +15,17 @@ function Nav() {
       </a>
 
       <div className="searchbox-wrapper">
-        <input type="text" placeholder="What do you want to watch?" />
-        
+        <input
+          type="text"
+          placeholder="What do you want to watch?"
+          
+        />
+        <i className="bx bx-search"></i>
       </div>
 
       <div className="signin-wrapper">
         <p>Sign in</p>
-        <a className="menu-icon">=</a>
+        <img src="./Menu.png" alt="menu" />
       </div>
     </nav>
   );

@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 .movie-details-container{
-    width: 100%;
-    height: 100vh;
     display: flex;
+    
 }
 
 .side-nav-container{
-    width: 220px;
+    width: 270px;
     height:120vh;
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 0 45px 45px 0;
@@ -16,12 +15,19 @@
 
 .side-nav-logo{
     display: flex;
+    align-items: center;
     margin-top: 40px;
-    padding-left: 20px;
+    padding-left: 10px;
+    gap: 10px;
+}
+
+.side-nav-logo h4{
+    margin-top: 20px;
 }
 
 .side-nav-list{
     margin-top: 5rem;
+    
 }
 
 .side-nav-list ul{
@@ -35,16 +41,62 @@
     font-size: 20px;
     font-weight: 600;
     color: #666666;
-    cursor: pointer;
+    cursor: pointer;   
 }
 
-.active{
+.side-nav-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    font-size: 20px;
+}
+
+.side-nav-movies{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #be123c;
     background: #f7cdd8;
     border-right: 4px solid #be123c;
+    font-size: 20px;
 }
 
-.side-nav-list li:hover{
+
+.side-nav-tv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    font-size: 20px;
+}
+
+.side-nav-upcoming{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    font-size: 20px;
+}
+
+
+
+.side-nav-home:hover{
+    color: #be123c;
+    background: #f7cdd8;
+}
+
+.side-nav-movies:hover{
+    color: #be123c;
+    background: #f7cdd8;
+}
+
+.side-nav-tv:hover{
+    color: #be123c;
+    background: #f7cdd8;
+}
+
+.side-nav-upcoming:hover{
     color: #be123c;
     background: #f7cdd8;
 }
@@ -53,7 +105,7 @@
     width: 170px;
     height: 210px;
     border: 1px solid #be123c;
-    margin-left: 20px;
+    margin-left: 8px;
     border-radius: 20px;
     font-family: 'Poppins', sans-serif;
 }
@@ -88,9 +140,16 @@
     text-align: center;
 }
 
+.log-out-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
 .log-out{
     text-align: center;
-    margin-top: 40px;
     font-weight: 500;
     font-size: 20px;
     color: #666666;
@@ -100,7 +159,7 @@
 
 .movie-details-wrapper{
     margin-top: 20px;
-    margin-left: 20px
+    margin-left: 30px;
 }
 
 .movie-details-content{
@@ -123,11 +182,13 @@
 
 
 .movie-details-content-two {
-
+    margin-right: 50px
 }
 
 
 .show-times{
+    display: flex;
+    align-items: center;
     margin-top: 20px;
     background-color: #be123c;
     color: #ffffff;
@@ -137,7 +198,8 @@
     font-weight: 500;
     font-size: 20px;
     text-align: center;
-    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 10px;
 }
 
 .show-times span{
@@ -146,6 +208,8 @@
 }
 
 .watch-options{
+    display: flex;
+    align-items: center;
     margin-top: 15px;
     background-color: #f7cdd8;
     color: #333333;
@@ -156,10 +220,40 @@
     font-weight: 500;
     font-size: 20px;
     text-align: center;
-    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+    gap: 15px;
+    padding-left: 10px;
 }
 
 .image{
     margin-top: 20px;
-    margin-right: 20px;
+    width: 270px;
+}
+
+.movie-crew span{ 
+    color: #be123c;
+}
+
+.movie-detail-footer{
+    width: 785px;
+    height: 55px;
+    border: 1px solid #c7c7c7;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-rated{
+    background-color: #be123c;
+    color: #ffffff;
+    height: 55px;
+    border-radius: 20px;
+    width: 300px;
+    font-family: 'Poppins', san-serif;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+
 }

@@ -1,5 +1,5 @@
 .homepage-container{
     width: 100%;
     height: 600px;
-    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('./bg.jpg')center/cover;
+    background: url('./Poster.png')center/cover;
 }

@@ -4,11 +4,15 @@ import './MovieResult.css';
 
 function MovieResult() {
   const [movies, setMovies] = useState([]);
-  // const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [ movieDetails, setMovieDetails ] = useState([])
+  const [favorite, setFavorite] = useState(false)
 
-  
+  const handleFavorite = ()=> {
+    setFavorite(!false)
+  }
+
+
   useEffect(() => {
     async function fetchData() {
       const options = {
@@ -46,7 +50,7 @@ function MovieResult() {
     fetchData();
   }, []);
 
-  // return <div>Fetching movie data...</div>;
+  
 
   // Get the movie poster
    const BASE_URL = "https://image.tmdb.org/t/p/w500";
@@ -56,12 +60,15 @@ function MovieResult() {
     <div className="movie-result-container">
       <div className="movie-header">
         <h2>Featured Movie</h2>
-        <p>See More</p>
+        <div className="see-more">
+          <p> See More </p>
+          <i className="bx bx-chevron-right"></i>
+        </div>
       </div>
 
       <div className="movie-box">
         {loading ? (
-          <h1>loading</h1>
+          <div className="loader"></div>
         ) : (
           movies.map((movie) => (
             <Link
@@ -74,8 +81,9 @@ function MovieResult() {
                 className="movie-poster"
                 data-testid=" movie-poster"
                 src={BASE_URL + movie.poster_path}
-                alt=""
+                alt="movie.title"
               />
+              <i className= "bx bxs-heart"></i>
               <p className="movie-year" data-testid="movie-release-date">
                 {movie.release_date}
               </p>
@@ -100,6 +108,23 @@ function MovieResult() {
           ))
         )}
       </div>
+
+      <footer className="footer">
+        <div className="footer-icon">
+          <i className="bx bxl-facebook-square"></i>
+          <i className="bx bxl-instagram"></i>
+          <i className="bx bxl-twitter"></i>
+          <i className="bx bxl-youtube"></i>
+        </div>
+        <div className="terms">
+          <h3>Condition of Use</h3>
+          <h3>Privacy & Policy</h3>
+          <h3>Press Room</h3>
+        </div>
+        <div className="copyright">
+          <h3>&copy;MovieBox by Adriana Eka Prayudha</h3>
+        </div>
+      </footer>
     </div>
   );
 }
