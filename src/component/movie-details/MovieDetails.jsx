@@ -3,7 +3,7 @@ import './MovieDetails.css';
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 
-// import logo from "...movie-details/assets/tv.png"
+
 
 function MovieDetails() {
   const [movieDetails, setMovieDetails] = useState([]);
@@ -15,6 +15,10 @@ function MovieDetails() {
     const opts = {
       height: "449",
       width: "1125",
+      playerVars: {
+        // Add any additional parameters here if needed
+        autoplay: 0, // Autoplay disabled
+      },
     };
 
 
@@ -25,7 +29,7 @@ useEffect(() => {
       // Fetch movie details by ID
       const response = await fetch(
         `http://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`,
-        //https://api.themoviedb.org/3/movie/${id}
+        
         {
           method: "GET",
           headers: {
@@ -89,7 +93,7 @@ useEffect(() => {
               <span>
                 <i className="bx bx-video"></i>
               </span>
-                <li>Upcoming</li>
+              <li>Upcoming</li>
             </div>
           </ul>
 
@@ -121,6 +125,9 @@ useEffect(() => {
           showMovieTrailers.map((movieTrailer) => (
             <div key={movieTrailer.id}>
               <YouTube videoId={movieTrailer.key} opts={opts} />
+
+              
+
               <div className="movie-details-content">
                 <div className="movie-overview">
                   <h4>
@@ -144,7 +151,7 @@ useEffect(() => {
 
                     <div className="movie-detail-footer">
                       <h4 className="top-rated">Top rated movie #65</h4>
-                      <h4 style={{ color: '#333333'}}>Awards 9 nominations</h4>
+                      <h4 style={{ color: "#333333" }}>Awards 9 nominations</h4>
                       <box-icon name="chevron-down"></box-icon>
                     </div>
                   </div>

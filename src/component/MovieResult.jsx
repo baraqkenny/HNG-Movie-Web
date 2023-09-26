@@ -6,12 +6,7 @@ function MovieResult() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [ movieDetails, setMovieDetails ] = useState([])
-  const [favorite, setFavorite] = useState(false)
-
-  const handleFavorite = ()=> {
-    setFavorite(!false)
-  }
-
+  
 
   useEffect(() => {
     async function fetchData() {
