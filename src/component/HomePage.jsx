@@ -31,9 +31,8 @@ function HomePage() {
 
          setMovie(randomMovie);
          setHomepageLoader(false);
-         console.log(randomMovie);
        } catch (error) {
-         console.error(error);
+         error.message('Failed to fetch');
        }
      };
 
@@ -61,11 +60,12 @@ function HomePage() {
             <h1>{movie.title}</h1>
             <p className="homepage-movie-title">{movie.overview}</p>
 
-            <button className="movie-trailer-btn">
+            {/* <button className="movie-trailer-btn">
               <span><i className="bx bxs-caret-right-circle"></i></span>
               WATCH TRAILER
-            </button>
+            </button> */}
           </div>
+          <div className="fade-bottom"></div>
         </div>
       )}
       {/* <MainContent /> */}

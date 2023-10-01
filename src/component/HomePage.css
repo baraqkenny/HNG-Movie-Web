@@ -1,6 +1,5 @@
 .homepage-container{
-    width: 100vw;
-    height:100vh;
+    height: 80vh; 
 }
 
 .homepage-loader {
@@ -34,7 +33,7 @@
 
 .homepage-movie-content p {
   margin-top: 1rem;
-  width: 30rem;
+  width: 50rem;
   line-height: 25px;
   font-size: 18px;
 }
@@ -58,4 +57,12 @@
 .movie-trailer-btn span{
   font-size: 20px;
   
+}
+
+.fade-bottom{
+  height: 8rem;
+  background-image: linear-gradient(
+      180deg, transparent,rgba(37, 37, 37, 0.61),
+      #111
+    );
 }
