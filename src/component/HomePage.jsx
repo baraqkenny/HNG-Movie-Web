@@ -1,8 +1,8 @@
 import { useEffect, useState} from 'react';
 import './HomePage.css';
 import Nav from './Nav';
-// import MainContent from './MainContent';
-import MovieResult from './MovieResult';
+import requests from "./api/requests";
+import Movies from './Movies';
 
 function HomePage() {
    const [movie, setMovie] = useState([]);
@@ -69,7 +69,16 @@ function HomePage() {
         </div>
       )}
       {/* <MainContent /> */}
-      <MovieResult />
+      {/* <MovieResult /> */}
+      <Movies title="Trending" fetchUrl={requests.fetchTrendingNow} />
+      <Movies title="Netflix Originals"fetchUrl={requests.fetchNetflixOriginals}/>
+      <Movies title="Top Rated" fetchUrl={requests.fetchTopRated} />
+      <Movies title="Action Movies" fetchUrl={requests.fetchActionMovies} />
+      {/* <Movies title="Comedy Movies" fetchurl={requests.fetchComedyMovies} /> */}
+      <Movies title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
+      <Movies title="Romance" fetchUrl={requests.fetchRomanceMovies} />
+      <Movies title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+      <Movies title="Upcoming" fetchUrl={requests.fetchUpcoming} />
     </>
   );
 }
