@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './MovieDetails.css';
 import { useParams } from "react-router-dom";
-import YouTube from "react-youtube";
+// import YouTube from "react-youtube";
 
 
 
@@ -11,15 +11,15 @@ function MovieDetails() {
   const [showMovieTrailers, setShowMovieTrailers] = useState([])
   const { id } = useParams();
 
-
-    const opts = {
-      height: "449",
-      width: "1125",
-      playerVars: {
-        // Add any additional parameters here if needed
-        autoplay: 0, // Autoplay disabled
-      },
-    };
+ 
+    // const opts = {
+    //   height: "449",
+    //   width: "1125",
+    //   playerVars: {
+    //     // Add any additional parameters here if needed
+    //     autoplay: 0, // Autoplay disabled
+    //   },
+    // };
 
 
 useEffect(() => {
@@ -124,9 +124,14 @@ useEffect(() => {
         ) : (
           showMovieTrailers.map((movieTrailer) => (
             <div key={movieTrailer.id}>
-              <YouTube videoId={movieTrailer.key} opts={opts} />
+              {/* <YouTube videoId={movieTrailer.key} opts={opts} /> */}
 
-              
+              <iframe
+                src={`https://www.youtube.com/embed/${movieTrailer.key}`}
+                width="900"
+                height="450"
+                allowFullScreen
+              ></iframe>
 
               <div className="movie-details-content">
                 <div className="movie-overview">

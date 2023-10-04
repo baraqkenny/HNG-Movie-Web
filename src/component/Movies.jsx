@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from '../axios';
+import { Link }  from 'react-router-dom'
 import './Movies.css'
 
 
@@ -25,11 +26,11 @@ function Movies({ title, fetchUrl}) {
 
       <div className="movie__poster__wrapper">
         {movies && movies.map((movie) => (
-          <div key={movie.id} className='movie__posters'>
+          <Link to={`/movie-details/${movie.id}`} key={movie.id} className='movie__posters'>
           <img className="movie__poster"
           src={`${BASE_URL}${movie.poster_path}`} 
           alt={movie.title} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>

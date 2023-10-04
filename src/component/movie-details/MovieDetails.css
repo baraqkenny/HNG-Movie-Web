@@ -2,7 +2,7 @@
 
 .movie-details-container{
     display: flex;
-    
+    background-color: #fff;
 }
 
 .side-nav-container{

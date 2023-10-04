@@ -68,17 +68,14 @@ function HomePage() {
           <div className="fade-bottom"></div>
         </div>
       )}
-      {/* <MainContent /> */}
-      {/* <MovieResult /> */}
-      <Movies title="Trending" fetchUrl={requests.fetchTrendingNow} />
+ 
       <Movies title="Netflix Originals"fetchUrl={requests.fetchNetflixOriginals}/>
       <Movies title="Top Rated" fetchUrl={requests.fetchTopRated} />
       <Movies title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      {/* <Movies title="Comedy Movies" fetchurl={requests.fetchComedyMovies} /> */}
       <Movies title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
       <Movies title="Romance" fetchUrl={requests.fetchRomanceMovies} />
       <Movies title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-      <Movies title="Upcoming" fetchUrl={requests.fetchUpcoming} />
+      
     </>
   );
 }
