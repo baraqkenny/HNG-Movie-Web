@@ -45,7 +45,6 @@ useEffect(() => {
       }
 
       const data = await response.json();
-      console.log( data )
       setShowMovieTrailers(data.videos.results.slice(0, 1))
      console.log(data.videos.results)
       setMovieDetails(data);
@@ -127,7 +126,7 @@ useEffect(() => {
               {/* <YouTube videoId={movieTrailer.key} opts={opts} /> */}
 
               <iframe
-                src={`https://www.youtube.com/embed/${movieTrailer.key}`}
+                src={`https://www.youtube-nocookie.com/embed/${movieTrailer.key}`}
                 width="900"
                 height="450"
                 allowFullScreen

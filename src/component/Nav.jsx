@@ -5,8 +5,8 @@ import "./Nav.css";
 function Nav() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
-  const API_KEY = "38fd0af9a364e45ff656fb0cb0a08c80";
+  const [searchList, setSearchList] = useState(false)
+ 
 
    const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -25,7 +25,7 @@ function Nav() {
           };
 
           const response = await fetch(
-            `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1`,
+            `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&language=en-US&page=1`,
             options
           );
           // const response = await fetch(
@@ -42,12 +42,14 @@ function Nav() {
         } catch (error) {
           console.log(error);
         }
+        
       }
 
     
   
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
+    setSearchList(true);
   };
 
   return (
@@ -66,11 +68,11 @@ function Nav() {
         />
         <i className="bx bx-search" onClick={searchMovie}></i>
       </form>
-      <ul className="">
+      <ul className={searchList? "search__result__wrapper" : ""}>
         {searchResults &&
           searchResults.map((searchResult) => (
             <React.Fragment key={searchResult.id}>
-              <div className="search__result__wrapper">
+              <div className="">
                 <img
                   className="search__result__image"
                   src={`${BASE_URL}${searchResult.poster_path}`}
