@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import logo from "../assets/tv.png";
 import "./Nav.css";
 
@@ -6,7 +6,6 @@ function Nav() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchList, setSearchList] = useState(false)
- 
 
    const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -15,6 +14,38 @@ function Nav() {
         e.preventDefault();
 
         try {
+          const options = {
+            method: "GET",
+            headers: {
+              accept: "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOGZkMGFmOWEzNjRlNDVmZjY1NmZiMGNiMGEwOGM4MCIsInN1YiI6IjYzMjg4MDgxMGMxMjU1MDA3ZDI5ODE1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JqwWU2ubIxC4jf-HE3r_zC5KQcUzVlFDe17Et6rXmfg",
+            },
+          };
+
+          const response = await fetch(
+            `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&language=en-US&page=1`,
+            options
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch data from MovieDB API");
+          }
+          const data = await response.json();
+          console.log(data.results);
+          setSearchResults(data.results);
+        } catch (error) {
+          console.log(error);
+        }
+        
+      }
+
+ 
+  
+  const handleSearch = async (e) => {
+    setSearchQuery(e.target.value);
+    setSearchList(true);
+     try {
           const options = {
             method: "GET",
             headers: {
@@ -42,14 +73,6 @@ function Nav() {
         } catch (error) {
           console.log(error);
         }
-        
-      }
-
-    
-  
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-    setSearchList(true);
   };
 
   return (
@@ -69,7 +92,7 @@ function Nav() {
         <i className="bx bx-search" onClick={searchMovie}></i>
       </form>
       <ul className={searchList? "search__result__wrapper" : ""}>
-        {searchResults &&
+        {searchResults && searchQuery !== "" &&
           searchResults.map((searchResult) => (
             <React.Fragment key={searchResult.id}>
               <div className="">

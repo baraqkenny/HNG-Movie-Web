@@ -1,8 +1,13 @@
+.movie__result__wrapper{
+    margin-top: 70px;
+}
+
 .movie__poster__wrapper{
     display: flex;   
     overflow-y: hidden;
     overflow-x: scroll;
     padding: 20px;
+    /* box-shadow: 0 0 30px rgba(175, 171, 171, 0.5); */
 }
 
 .movie__poster__wrapper::-webkit-scrollbar {
@@ -10,12 +15,13 @@
 }
 
 .title{
+    margin-left: 20px;
     color: #ffffff;
 }
 
 .movie__posters{
     margin-right: 10px;
-    /* padding: 20px; */
+    box-shadow: 0 0 30px rgba(175, 171, 171, 0.5);
 }
 
 .movie__poster{

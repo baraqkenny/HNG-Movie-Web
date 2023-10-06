@@ -21,7 +21,7 @@ function Movies({ title, fetchUrl}) {
     },[fetchUrl])
 
   return (
-    <div className="">
+    <div className="movie__result__wrapper">
       <h2 className="title">{title}</h2>
 
       <div className="movie__poster__wrapper">
