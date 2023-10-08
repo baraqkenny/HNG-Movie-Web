@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import logo from "../assets/tv.png";
+import { Link } from 'react-router-dom';
 import "./Nav.css";
 
 function Nav() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [searchList, setSearchList] = useState(false)
+  const [searchList, setSearchList] = useState(false);
+  const [error, setError] = useState(null)
 
    const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -35,7 +37,7 @@ function Nav() {
           console.log(data.results);
           setSearchResults(data.results);
         } catch (error) {
-          console.log(error);
+          setError(error);
         }
         
       }
@@ -59,11 +61,7 @@ function Nav() {
             `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&language=en-US&page=1`,
             options
           );
-          // const response = await fetch(
-          //   `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
-          // );
-          //  api.themoviedb.org/3/search/movie?query=${searchResults}&api_key=${API_KEY}
-
+          
           if (!response.ok) {
             throw new Error("Failed to fetch data from MovieDB API");
           }
@@ -91,34 +89,23 @@ function Nav() {
         />
         <i className="bx bx-search" onClick={searchMovie}></i>
       </form>
-      <ul className={searchList? "search__result__wrapper" : ""}>
-        {searchResults && searchQuery !== "" &&
+      <ul className={searchList ? "search__result__wrapper" : ""}>
+        {error && <p>Error: {error.message}</p>}
+        {searchResults &&
+          searchQuery !== "" &&
           searchResults.map((searchResult) => (
-            <React.Fragment key={searchResult.id}>
-              <div className="">
+            <section className="search__result__content" key={searchResult.id}>            
                 <img
                   className="search__result__image"
                   src={`${BASE_URL}${searchResult.poster_path}`}
                 />
-                <li className="movie__list">{searchResult.title}</li>
-              </div>
-            </React.Fragment>
+                <Link to={`/movie-details/${searchResult.id}`} className="movie__list">{searchResult.title}</Link>
+              
+            </section>
           ))}
       </ul>
-      {/* <div className="searchbox-wrapper">
-        <input
-          type="text"
-          placeholder="What do you want to watch?"
-          onChange={handleSearch}
-          value={}
-        />
-        <i className="bx bx-search" ></i>
-      </div> */}
-
-      <div className="signin-wrapper">
-        <p>Sign in</p>
-        <img src="./Menu.png" alt="menu" />
-      </div>
+      
+          <button className="sign__in">Sign in</button>
     </nav>
   );
 }
