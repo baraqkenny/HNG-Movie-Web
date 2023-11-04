@@ -27,18 +27,9 @@ useEffect(() => {
     try {
       const API_KEY = "38fd0af9a364e45ff656fb0cb0a08c80";
       // Fetch movie details by ID
-      const response = await fetch(
-        `http://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`,
-        
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOGZkMGFmOWEzNjRlNDVmZjY1NmZiMGNiMGEwOGM4MCIsInN1YiI6IjYzMjg4MDgxMGMxMjU1MDA3ZDI5ODE1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JqwWU2ubIxC4jf-HE3r_zC5KQcUzVlFDe17Et6rXmfg",
-          },
-        }
-      );
+     const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`);
+
 
       if (!response.ok) {
         throw new Error(`Network response was not ok (${response.status})`);
@@ -62,68 +53,20 @@ useEffect(() => {
 
   return (
     <div className="movie-details-container">
-      <div className="side-nav-container">
+      
         <div className="side-nav-logo">
           <img src="../tv.png" alt="website-logo" />
           <h2>MovieBox</h2>
         </div>
 
-        <div className="side-nav-list">
-          <ul>
-            <div className="side-nav-home">
-              <span>
-                <i className="bx bx-home-alt"></i>
-              </span>
-              <li>Home</li>
-            </div>
-            <div className="side-nav-movies">
-              <span>
-                <i className="bx bx-video"></i>
-              </span>
-              <li className="active">Movies</li>
-            </div>
-            <div className="side-nav-tv">
-              <span>
-                <i className="bx bx-tv"></i>
-              </span>
-              <li>TV Series</li>
-            </div>
-            <div className="side-nav-upcoming">
-              <span>
-                <i className="bx bx-video"></i>
-              </span>
-              <li>Upcoming</li>
-            </div>
-          </ul>
-
-          <div className="play-movies-wrapper">
-            <div className="play-movies-content">
-              <h4>
-                Play movie quizes
-                <br /> and earn
-                <br /> free tickets
-              </h4>
-              <p>
-                50k people are playing
-                <br /> now
-              </p>
-              <button>start playing</button>
-            </div>
-          </div>
-          <div className="log-out-wrapper">
-            <box-icon name="log-in"></box-icon>
-            <h4 className="log-out">Log out</h4>
-          </div>
-        </div>
-      </div>
 
       <div className="movie-details-wrapper">
         {loading ? (
           <div className="loader"></div>
         ) : (
           showMovieTrailers.map((movieTrailer) => (
-            <div key={movieTrailer.id}>
-              <YouTube videoId={movieTrailer.key} opts={opts} />
+            <div key={movieTrailer?.id}>
+              <YouTube videoId={movieTrailer?.key} opts={opts} />
 
               {/* <iframe
                 src={`https://www.youtube-nocookie.com/embed/${movieTrailer.key}`}
@@ -135,11 +78,10 @@ useEffect(() => {
               <div className="movie-details-content">
                 <div className="movie-overview">
                   <h4>
-                    {movieDetails.title} <span>.</span>{" "}
-                    {movieDetails.release_date} <span>.</span> PG-13
+                    {movieDetails?.release_date} <span>.</span> PG-13
                   </h4>
 
-                  <p>{movieDetails.overview}</p>
+                  <p>{movieDetails?.overview}</p>
 
                   <div className="movie-crew">
                     <p>
@@ -191,3 +133,4 @@ useEffect(() => {
 }
 
 export default MovieDetails
+ 

@@ -2,7 +2,8 @@
 
 .movie-details-container{
     display: flex;
-    background-color: #fff;
+    background-color: #000;
+    color: #fff;
 }
 
 .side-nav-container{
@@ -40,7 +41,7 @@
     padding: 1.5rem;
     font-size: 20px;
     font-weight: 600;
-    color: #666666;
+    /* color: #666666; */
     cursor: pointer;   
 }
 

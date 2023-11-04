@@ -24,9 +24,7 @@
 }
 
 .searchbox-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    
     border: 2px solid #fff;
     border-radius: 5px;
     width: 37%;
@@ -52,12 +50,10 @@ input[type="text"] {
 
 .bx-search{
     color: #ffffff;
-    padding-right: 10px;
+    padding: 0 5px 10px 19px;
     font-size: 20px;
     cursor: pointer;
 }
-
-
 
 .search__result__wrapper{
     position: absolute; 

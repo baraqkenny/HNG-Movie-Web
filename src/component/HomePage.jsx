@@ -3,6 +3,7 @@ import './HomePage.css';
 import Nav from './Nav';
 import requests from "./api/requests";
 import Movies from './Movies';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
    const [movie, setMovie] = useState([]);
@@ -48,34 +49,39 @@ function HomePage() {
         <div
           style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(${
-              BASE_URL + movie?.backdrop_path
+              BASE_URL + movie?.poster_path
             })`,
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
           className="homepage-container"
         >
           <Nav />
           <div className="homepage-movie-content">
-            <h1>{movie.title}</h1>
-            <p className="homepage-movie-title">{movie.overview}</p>
+            <h1>{movie?.title}</h1>
+            <p className="homepage-movie-title">{movie?.overview}</p>
 
             <button className="movie-trailer-btn">
-              <span><i className="bx bxs-caret-right-circle"></i></span>
-              WATCH TRAILER
+              <span>
+                <i className="bx bxs-caret-right-circle"></i>
+              </span>
+              <Link className='watch__movies' to={`/movie-details/${movie.id}`}>WATCH TRAILER</Link>
             </button>
           </div>
           <div className="fade-bottom"></div>
         </div>
       )}
- 
-      <Movies title="Netflix Originals"fetchUrl={requests.fetchNetflixOriginals}/>
+
+      <Movies
+        title="Netflix Originals"
+        fetchUrl={requests.fetchNetflixOriginals}
+      />
       <Movies title="Top Rated" fetchUrl={requests.fetchTopRated} />
       <Movies title="Action Movies" fetchUrl={requests.fetchActionMovies} />
       <Movies title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
       <Movies title="Romance" fetchUrl={requests.fetchRomanceMovies} />
       <Movies title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-      
     </>
   );
 }

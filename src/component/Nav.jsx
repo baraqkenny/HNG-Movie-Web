@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "../assets/tv.png";
 import { Link } from 'react-router-dom';
 import "./Nav.css";
@@ -7,7 +7,7 @@ function Nav() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchList, setSearchList] = useState(false);
-  const [error, setError] = useState(null)
+  // const [error, setError] = useState(null)
 
    const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -37,7 +37,7 @@ function Nav() {
           console.log(data.results);
           setSearchResults(data.results);
         } catch (error) {
-          setError(error);
+          console.log(error)
         }
         
       }
@@ -48,18 +48,17 @@ function Nav() {
     setSearchQuery(e.target.value);
     setSearchList(true);
      try {
-          const options = {
-            method: "GET",
-            headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOGZkMGFmOWEzNjRlNDVmZjY1NmZiMGNiMGEwOGM4MCIsInN1YiI6IjYzMjg4MDgxMGMxMjU1MDA3ZDI5ODE1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JqwWU2ubIxC4jf-HE3r_zC5KQcUzVlFDe17Et6rXmfg",
-            },
-          };
+          // const options = {
+          //   method: "GET",
+          //   headers: {
+          //     accept: "application/json",
+          //     Authorization:
+          //       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOGZkMGFmOWEzNjRlNDVmZjY1NmZiMGNiMGEwOGM4MCIsInN1YiI6IjYzMjg4MDgxMGMxMjU1MDA3ZDI5ODE1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JqwWU2ubIxC4jf-HE3r_zC5KQcUzVlFDe17Et6rXmfg",
+          //   },
+          // };
 
           const response = await fetch(
-            `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&language=en-US&page=1`,
-            options
+            `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&language=en-US&page=1`
           );
           
           if (!response.ok) {
@@ -75,10 +74,10 @@ function Nav() {
 
   return (
     <nav className="nav-container">
-      <a href="" className="logo-wrapper">
+      <Link to="/" className="logo-wrapper">
         <img className="logo-image" src={logo} alt="website-logo" />
         <h3>MovieBox</h3>
-      </a>
+      </Link>
 
       <form className="searchbox-wrapper">
         <input
@@ -90,16 +89,17 @@ function Nav() {
         <i className="bx bx-search" onClick={searchMovie}></i>
       </form>
       <ul className={searchList ? "search__result__wrapper" : ""}>
-        {error && <p>Error: {error.message}</p>}
+        {/* {error && <p>Error: {error.message}</p>} */}
         {searchResults &&
           searchQuery !== "" &&
           searchResults.map((searchResult) => (
             <section className="search__result__content" key={searchResult.id}>            
                 <img
                   className="search__result__image"
-                  src={`${BASE_URL}${searchResult.poster_path}`}
+                  src={`${BASE_URL}${searchResult?.poster_path}`}
+                  loading="lazy"
                 />
-                <Link to={`/movie-details/${searchResult.id}`} className="movie__list">{searchResult.title}</Link>
+                <Link to={`/movie-details/${searchResult?.id}`} className="movie__list">{searchResult?.title}</Link>
               
             </section>
           ))}

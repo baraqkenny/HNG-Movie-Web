@@ -59,6 +59,12 @@
   
 }
 
+.watch__movies{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+
 .fade-bottom{
   height: 10rem;
   background-image: linear-gradient(
