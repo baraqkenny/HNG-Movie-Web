@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './MovieDetails.css';
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
+import Nav from '../Nav';
 
 
 
@@ -14,7 +15,7 @@ function MovieDetails() {
  
     const opts = {
       height: "449",
-      width: "1125",
+      width: "900",
       playerVars: {
           origin: 'http://localhost:5173',
         autoplay: 0, 
@@ -53,12 +54,9 @@ useEffect(() => {
 
   return (
     <div className="movie-details-container">
-      
-        <div className="side-nav-logo">
-          <img src="../tv.png" alt="website-logo" />
-          <h2>MovieBox</h2>
-        </div>
-
+      <section className="">
+        <Nav />
+      </section>
 
       <div className="movie-details-wrapper">
         {loading ? (
@@ -66,63 +64,37 @@ useEffect(() => {
         ) : (
           showMovieTrailers.map((movieTrailer) => (
             <div key={movieTrailer?.id}>
-              <YouTube videoId={movieTrailer?.key} opts={opts} />
-
-              {/* <iframe
-                src={`https://www.youtube-nocookie.com/embed/${movieTrailer.key}`}
-                width="900"
-                height="450"
-                allowFullScreen
-              ></iframe> */}
+              <div className="youtube__video__wrapper">
+                <YouTube videoId={movieTrailer?.key} opts={opts} />
+              </div>
 
               <div className="movie-details-content">
+                <img
+                  className="movie__detail__image"
+                  src="../Rectangle 37.png"
+                  alt=""
+                />
+
                 <div className="movie-overview">
-                  <h4>
-                    {movieDetails?.release_date} <span>.</span> PG-13
-                  </h4>
+                  <div className='movie__title__wrapper'>
+                    <h1>Silo</h1>
+                    <button className="add__to__fav">
+                      <i className="bx bx-plus"></i>add to favorite
+                    </button>
+                  </div>
+                  <div className="movie__genre">
+                    <button className='genre__one'>Drama</button>
+                    <button className='genre__two'>Science Fiction</button>
+                    <div>2023</div>
+                    <div>50:38</div>
+                    <div>8.5</div>
+                  </div>
+                  
 
                   <p>{movieDetails?.overview}</p>
-
-                  <div className="movie-crew">
-                    <p>
-                      Director: <span>Joseph kosinski</span>
-                    </p>
-                    <p>
-                      Writers: <span>Jim Cash, Jack Epps jr, Peter Craig</span>
-                    </p>
-                    <p>
-                      Stars:
-                      <span>Tom Cruise, Jennifer Connelly, Miles Teller</span>
-                    </p>
-
-                    <div className="movie-detail-footer">
-                      <h4 className="top-rated">Top rated movie #65</h4>
-                      <h4 style={{ color: "#333333" }}>Awards 9 nominations</h4>
-                      <box-icon name="chevron-down"></box-icon>
-                    </div>
-                  </div>
                 </div>
-                <div className="movie-details-content-two">
-                  <h4>
-                    <span className="popular">
-                      <box-icon name="star"></box-icon>
-                    </span>
-                    8.6 | 350k
-                  </h4>
-                  <p className="show-times">
-                    <span>
-                      <img src="../Two Tickets.png" alt="" />
-                    </span>
-                    See Showtimes
-                  </p>
-                  <p className="watch-options">
-                    <span>
-                      <box-icon name="list-ul"></box-icon>
-                    </span>
-                    More watch options
-                  </p>
-                  <img className="image" src="../Rectangle 37.png" alt="" />
-                </div>
+
+               
               </div>
             </div>
           ))

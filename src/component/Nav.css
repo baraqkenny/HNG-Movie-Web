@@ -24,7 +24,8 @@
 }
 
 .searchbox-wrapper{
-    
+    display: flex;
+    align-items: center;
     border: 2px solid #fff;
     border-radius: 5px;
     width: 37%;
@@ -50,7 +51,7 @@ input[type="text"] {
 
 .bx-search{
     color: #ffffff;
-    padding: 0 5px 10px 19px;
+    padding-left: 20px;
     font-size: 20px;
     cursor: pointer;
 }
