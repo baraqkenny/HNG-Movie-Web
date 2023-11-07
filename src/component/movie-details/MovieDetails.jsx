@@ -11,6 +11,7 @@ function MovieDetails() {
   const [loading, setLoading] = useState(true);
   const [showMovieTrailers, setShowMovieTrailers] = useState([])
   const { id } = useParams();
+  const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
  
     const opts = {
@@ -60,7 +61,7 @@ useEffect(() => {
 
       <div className="movie-details-wrapper">
         {loading ? (
-          <div className="loader"></div>
+          <div className="movie__detail__loading"></div>
         ) : (
           showMovieTrailers.map((movieTrailer) => (
             <div key={movieTrailer?.id}>
@@ -71,7 +72,7 @@ useEffect(() => {
               <div className="movie-details-content">
                 <img
                   className="movie__detail__image"
-                  src="../Rectangle 37.png"
+                  src={`${BASE_URL}${movieDetails?.poster_path}`}
                   alt=""
                 />
 
